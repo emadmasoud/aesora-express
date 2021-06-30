@@ -1,0 +1,16 @@
+version: "1"
+services:
+  - name: aeoe:0.1.0
+    description: my app description
+    run: node /ops/index.js
+    port: [ '8080:8080' ]
+    domain: ""
+    env:
+      static:
+        - DB_PORT=5050
+    events:
+     - "github:emadmasoud/aesora-express:push:ref==master"
+    trigger:
+     - build
+     - publish
+     - start
