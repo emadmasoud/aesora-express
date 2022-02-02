@@ -1,0 +1,32 @@
+version: v1.0
+name: Pipeline 2
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: 'Block #1'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - echo "job 1"
+  - name: 'Block #2'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #3'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+promotions:
+  - name: Promotion 1
+    pipeline_file: pipeline_3.yml
+  - name: Promotion 2
+    pipeline_file: pipeline_4.yml
+  - name: Promotion 3
+    pipeline_file: pipeline_5.yml
+  - name: Promotion 4
+    pipeline_file: pipeline_6.yml

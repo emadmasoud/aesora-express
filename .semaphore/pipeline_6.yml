@@ -1,26 +1,20 @@
 version: v1.0
-name: Initial Pipeline
+name: Pipeline 6
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu2004
+    os_image: ubuntu1804
 blocks:
   - name: 'Block #1'
     task:
       jobs:
         - name: 'Job #1'
           commands:
-            - checkout
-  - name: 'Block #2'
-    task:
-      jobs:
-        - name: 'Job #1'
-          commands: []
+            - echo "job 1"
 after_pipeline:
   task:
     jobs:
       - name: 'Job #1'
         commands: []
-promotions:
-  - name: Promotion 1
-    pipeline_file: pipeline_2.yml
+      - name: 'Job #2'
+        commands: []
